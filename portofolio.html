@@ -2,39 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <style>
-        /* Mengatur warna ikon menjadi hitam */
+        /* Mengatur warna ikon */
         .navbar-toggler-icon,
         .bi-search,
         .bi-cart {
             color: black !important;
         }
 
+        /* Navbar - Sejajarkan dengan konten lain */
+.navbar {
+    margin-left: 15px; /* Menambahkan margin kiri untuk navbar */
+}
+
+/* Margin antara Contact dan gambar porto */
+.section img {
+    margin-left: 30px; /* Memberikan jarak kiri antara gambar dan elemen sebelahnya */
+}
+
+/* Atur margin navbar untuk memastikan konten sejajar */
+.navbar-nav {
+    margin-left: 30px; /* Sejajarkan navbar dengan konten lainnya */
+}
+
+/* Jika menggunakan breakpoint, sesuaikan juga untuk perangkat kecil */
+@media (max-width: 768px) {
+    .navbar-nav {
+        margin-left: 0; /* Menghilangkan margin kiri pada perangkat kecil */
+    }
+
+    .section img {
+        margin-left: 0; /* Menghilangkan margin pada gambar di perangkat kecil */
+    }
+}
+
+
         /* Section 2 - Judul di Kiri dan Gambar di Kanan */
         .section {
             display: flex;
-            flex-wrap: wrap; /* Responsif dengan membungkus elemen */
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             padding: 50px;
             background-color: #fff;
             margin-top: 20px;
         }
+        
 
-        .section h2 {
+        .section h2, .section h1 {
             font-size: 36px;
             color: #333;
         }
 
         .section h1 {
             margin-left: 70px;
-            font-size: 36px;
         }
 
         .section p {
@@ -61,15 +88,14 @@
             height: 200px;
         }
 
-        /* Responsif pada layar kecil */
         @media (max-width: 768px) {
             .section {
-                flex-direction: column; /* Elemen ditumpuk secara vertikal */
-                text-align: center; /* Pusatkan teks dan gambar */
+                flex-direction: column;
+                text-align: center;
             }
 
             .section h2, .section h1 {
-                margin: 0;
+                margin-left: 0;
             }
 
             .section img {
@@ -81,228 +107,288 @@
             }
         }
 
-        /* Section 3 - Biodata dengan 6 Box */
+        /* Section 3 - Biodata */
         .descriptionAboutMe {
             width: 100%;
             max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .biodata div {
+        .biodata-box {
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: #007BFF; 
+            color: #007BFF;
         }
-/* Menambahkan kelas baru untuk animasi efek hover */
-.biodata-box {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #007BFF;
-}
 
-/* Efek hover pada setiap kolom */
-.biodata-box:hover {
-    transform: scale(1.1); /* Membesarkan kolom saat hover */
-    box-shadow: 0 8px 12px rgba(3, 53, 250, 0.908); /* Efek bayangan lebih besar */
-    cursor: pointer; /* Menambahkan pointer saat hover */
-}
+        .biodata-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(3, 53, 250, 0.9);
+            cursor: pointer;
+        }
 
-/* Tambahkan efek animasi rotasi dan perubahan warna pada kolom */
-.biodata-box:hover .bi {
-    transform: rotate(15deg); /* Putar ikon sedikit saat hover */
-    color: #0056b3; /* Ubah warna ikon menjadi biru lebih gelap */
-}
-
-        
+        .biodata-box .bi {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
 
         /* Section 4 - Swiper */
-       .portofolio {
-        background-color: black;
-        color: white;
-       }
+        .portofolio {
+            background-color: black;
+            color: white;
+            padding: 50px 0;
+        }
 
-      
-      
         .swiper-container {
             width: 100%;
             padding-top: 50px;
             padding-bottom: 50px;
-            background-color:black;
-            color: white;
         }
 
         .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-position: center;
-            background-size: cover;
             width: 300px;
             height: 300px;
-            border: 3px solid black; /* Border hitam untuk setiap slide */
-            border-radius: 10px; /* Membuat sudut border melengkung */
-            padding: 10px; /* Memberikan ruang di dalam border */
             position: relative;
             text-align: center;
-            overflow: hidden; /* Agar isi tidak meluap keluar */
+            overflow: visible;
         }
 
         .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
-            border-radius: 5px; /* Membuat gambar lebih halus di bagian sudut */
+            border-radius: 10px;
             object-fit: cover;
         }
 
-        /* Membuat gambar menjadi responsif */
-        .swiper-slide img.img-fluid {
-            object-fit: cover;
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: none;
+            border-radius: 10px;
+            overflow: visible;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Deskripsi dan Judul di bawah gambar */
-        .swiper-slide .text {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            right: 10px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.6); /* Latar belakang semi-transparan */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
+
+        .card-img-top {
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        
 
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg m ms-5 mt-2">
+    <nav class="navbar navbar-expand-lg ms-5 mt-2">
         <div class="container-sm">
             <a class="navbar-brand" href="#">Yuks</a>
             <div class="d-flex ms-auto d-lg-none">
-                <!--Tombol Search-->
-                <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="bi bi-search" style="font-size: 1rem;"></i>
+                <button class="btn btn-outline-light me-3" type="button">
+                    <i class="bi bi-search"></i>
                 </button>
-                <!--Tombol Shop-->
-                <button class="btn btn-outline-light me-3" type="button" d-lg-none>
-                    <i class="bi bi-cart" style="font-size: 1rem;"></i>
+                <button class="btn btn-outline-light me-3" type="button">
+                    <i class="bi bi-cart"></i>
                 </button>
-                <!--Tombol Hamburber-->
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">AboutMe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Service</a> 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Project</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">AboutMe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Section 2 Judul dan Gambar -->
     <div class="section" id="section2">
-        <div>
+        <div class="ms-2 hallo">
             <p>Hallo!!!</p>
             <h2>Web</h2>
             <h1>Developer</h1>
-            <button>Pelajari lebih lanjut</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#learnMoreModal">Pelajari lebih lanjut</button>
         </div>
-        <div>
-            <img src="porto.jpg" alt="gambar dari folder">
+        <div class="ms-5">
+            <img src="porto.jpg" alt="gambar dari folder" class="me-5">
+        </div>
+    </div>
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="learnMoreModalLabel">Pelajari Lebih Lanjut</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Ini adalah informasi lebih lanjut mengenai Web Developer. Kamu bisa menambahkan detail lebih banyak di sini!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+        
+
+    <h2 align="center">About Me</h2>
+    <div class="descriptionAboutMe">
+        <p>Halo! Saya adalah seorang Front-End Developer yang senang mengubah ide menjadi antarmuka digital yang memukau. Dengan kombinasi desain estetis dan kode efisien, saya menciptakan pengalaman pengguna yang seamless dan penuh makna. Passion saya terletak pada detail, performa, dan keindahan web modern.</p>
+    </div>
+
+    <div class="container" id="section3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 pt-5">
+            <div class="col">
+                <div class="biodata-box">
+                    <i class="bi bi-person-circle"></i>
+                    <strong>Name:</strong> Junaedi
+                </div>
+            </div>
+            <div class="col">
+                <div class="biodata-box">
+                    <i class="bi bi-backpack"></i>
+                    <strong>Education:</strong> SMK Jaya Wisata 1
+                </div>
+            </div>
+            <div class="col">
+                <div class="biodata-box">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <strong>Pekerjaan:</strong> Travel Consultant
+                </div>
+            </div>
+            <div class="col">
+                <div class="biodata-box">
+                    <i class="bi bi-person-badge"></i>
+                    <strong>Contact:</strong> 089601299330
+                </div>
+            </div>
+            <div class="col">
+                <div class="biodata-box">
+                    <i class="bi bi-activity"></i>
+                    <strong>Hobi:</strong> Coding, Gym
+                </div>
+            </div>
+            <div class="col">
+                <div class="biodata-box">
+                    <i class="bi bi-geo-alt"></i>
+                    <strong>Alamat:</strong> Jakarta
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Section 3: Biodata dengan 6 Box -->
-<h2 align="center">About me</h2>
-<div class="descriptionAboutMe">
-    <p>Halo! Saya adalah seorang Front-End Developer yang senang mengubah ide menjadi antarmuka digital yang memukau. Dengan kombinasi desain estetis dan kode efisien, saya menciptakan pengalaman pengguna yang seamless dan penuh makna. Passion saya terletak pada detail, performa, dan keindahan web modern</p>
-</div>
-<div class="container" id="section3">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
-        <div class="col">
-            <div class="biodata-box p-3 text-center">
-                <strong class="warna"><i class="bi bi-person-circle"></i> Name :</strong> Junaedi
-            </div>
-        </div>
-        <div class="col">
-            <div class="biodata-box p-3 text-center">
-                <strong class="warna"><i class="bi bi-backpack"></i> Education :</strong> SMK Jaya Wisata 1
-            </div>
-        </div>
-        <div class="col">
-            <div class="biodata-box p-3 text-center">
-                <strong class="warna"><i class="bi bi-briefcase-fill"></i> Pekerjaan :</strong> Travel consultant
-            </div>
-        </div>
-        <div class="col">
-            <div class="biodata-box p-3 text-center">
-                <strong class="warna"><i class="bi bi-person-badge"></i> Contact :</strong> 089601299330
-            </div>
-        </div>
-        <div class="col">
-            <div class="biodata-box p-3 text-center">
-                <strong class="warna"><i class="bi bi-activity"></i> Hobi :</strong> Coding, Gym
-            </div>
-        </div>
-        <div class="col">
-            <div class="biodata-box p-3 text-center">
-                <strong class="warna"><i class="bi bi-geo-alt"></i> Alamat :</strong> Jakarta
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <!-- Section 4: Portofolio Swiper -->
     <div class="portofolio">
-    <div class="porto text-center"><h2>Portofolio</h2></div>
-    <div class="swiper mySwiper mt-5">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="https://swiperjs.com/demos/images/nature-1.jpg" class="img-fluid"/>
-                <div class="text">
-                    <h3>Project 1</h3>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img src="https://swiperjs.com/demos/images/nature-2.jpg" class="img-fluid"/>
-                <div class="text">
-                    <h3>Project 2</h3>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img src="https://swiperjs.com/demos/images/nature-3.jpg" class="img-fluid"/>
-                <div class="text">
-                    <h3>Project 3</h3>
-                </div>
-            </div>
+        <div class="porto text-center">
+            <h2>My Project</h2>
+            <p>Ini adalah beberapa contoh project saya</p>
         </div>
-        <div class="swiper-pagination"></div>
-      </div>  
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 1</h3>
+                            <p class="card-text">Deskripsi Project 1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 2</h3>
+                            <p class="card-text">Deskripsi Project 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 3</h3>
+                            <p class="card-text">Deskripsi Project 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
+
+ <!-- Contact Section -->
+ <div class="contact-section text-center mt-5">
+    <h2>Contact</h2>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Get in touch</button>
+</div>
+
+<!-- Modal Contact -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Kontak Kami</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Pesan</label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Masukkan pesan Anda" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        <button type="submit" class="btn btn-primary">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
