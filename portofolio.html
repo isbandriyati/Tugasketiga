@@ -45,14 +45,16 @@
 
         /* Section 2 - Judul di Kiri dan Gambar di Kanan */
         .section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px;
-            background-color: #fff;
-            margin-top: 20px;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Elemen sejajar di tengah secara horizontal */
+    align-items: center; /* Elemen sejajar di tengah secara vertikal */
+    padding: 50px;
+    background-color: #fff;
+    margin-top: 20px;
+    gap: 20%; /* Memberikan jarak antar elemen */
+}
+
         
 
         .section h2, .section h1 {
@@ -60,10 +62,10 @@
             color: #333;
         }
 
-        .section h1 {
-            margin-left: 70px;
-        }
-
+        .section h1, .section h2, .section p {
+    text-align: center; /* Teks berada di tengah */
+    margin: 0; /* Hilangkan margin default */
+}
         .section p {
             color: #666;
             font-size: 18px;
@@ -83,10 +85,11 @@
         }
 
         .section img {
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-        }
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
 
         @media (max-width: 768px) {
             .section {
@@ -113,6 +116,7 @@
             max-width: 500px;
             margin: 0 auto;
             text-align: center;
+            
         }
 
         .biodata-box {
@@ -201,7 +205,7 @@
 <body>
     <nav class="navbar navbar-expand-lg ms-5 mt-2">
         <div class="container-sm">
-            <a class="navbar-brand" href="#">Yuks</a>
+            <a class="navbar-brand" href="#">Junaedi</a>
             <div class="d-flex ms-auto d-lg-none">
                 <button class="btn btn-outline-light me-3" type="button">
                     <i class="bi bi-search"></i>
@@ -259,7 +263,7 @@
 
         
 
-    <h2 align="center" id="About Me">About Me</h2>
+    <h2 align="center" id="About Me" class="mt-5">About Me</h2>
     <div class="descriptionAboutMe">
         <p>Halo! Saya adalah seorang Front-End Developer yang senang mengubah ide menjadi antarmuka digital yang memukau. Dengan kombinasi desain estetis dan kode efisien, saya menciptakan pengalaman pengguna yang seamless dan penuh makna. Passion saya terletak pada detail, performa, dan keindahan web modern.</p>
     </div>
@@ -305,7 +309,7 @@
         </div>
     </div>
 
-    <div class="portofolio" id="Project">
+    <div class="portofolio mt-5" id="Project">
         <div class="porto text-center">
             <h2>Project</h2>
             <p>Ini adalah beberapa contoh project saya</p>
